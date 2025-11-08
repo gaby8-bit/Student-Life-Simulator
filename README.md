@@ -108,5 +108,40 @@ Acestea sunt sistemele de bază care definesc bucla de joc (game loop) și inter
 * **Flux:**
     * **Venit:** Acțiunea "Muncă" sau evenimente (ex: "Pachet de acasă").
     * **Cheltuieli:** Acțiunile "Mâncat" și "Socializare".
+ 
+    * 
+## VI. Mecanica de Confruntare cu Profesorul (Boss Fight) ⚔️
 
+Acesta este sistemul care definește Examenul: o **luptă pe ture (turn-based RPG)** împotriva Profesorului-Boss.
+
+### 1. Obiectivul Final
+În loc de o verificare pasivă a progresului, examenul este o confruntare activă. Studentul trebuie să **învingă Profesorul-Boss** în luptă pentru a obține o Notă de Trecere.
+
+### 2. Conectarea la Simulare
+Succesul în luptă depinde direct de pregătirea din jocul de simulare:
+
+| Stat Simulare | Devine Stat de Luptă | Impactul |
+| :--- | :--- | :--- |
+| **`Progres de Învățare`** | **`Puterea de Atac`** (Damage-ul răspunsurilor) | Dacă progresul e mic, atacurile studentului nu fac aproape nicio daună. |
+| **`Oboseală` & `Nevoie Socială`** | **`Voința` (HP-ul Studentului)** | Intrând în luptă epuizat sau demotivat, studentul va avea Viața maximă redusă. |
+| **`Foame`** | **`Concentrarea` (MP/Resursă de Acțiune)** | Resursa studentului pentru a folosi acțiuni, care este redusă dacă studentul e flămând. |
+
+### 3. Profesorul-Boss
+Profesorul are o bară de **`Răbdare` (HP-ul său)** care trebuie epuizată.
+
+* **Acțiunile Profesorului (Atacuri):** Profesorul folosește o varietate de atacuri tematice:
+    * **`Întrebare Capcană`:** Daune la `Voința` studentului.
+    * **`Monolog Plictisitor`:** Scade `Concentrarea` studentului.
+    * **`Privire Dezaprobatoare`:** Aplică *debuff*-uri care reduc șansa de a răspunde corect.
+
+### 4. Acțiunile Studentului
+Jucătorul trebuie să își gestioneze `Voința` și `Concentrarea` pentru a riposta eficient:
+
+* **`Răspuns Corect`:** Acțiunea de bază pentru a reduce `Răbdarea` profesorului.
+* **`Răspuns Elaborat`:** Consumă mai multă `Concentrare`, dar face daune superioare (efectiv un "Atac Special").
+* **`Pauză de Cafea`:** Consumă o tură pentru a recupera parțial `Voința` sau `Concentrarea`.
+
+### 5. Rezultat
+* **Victorie:** Profesorul este învins (`Răbdare` epuizată), iar studentul trece Examenul cu o Notă mare (10).
+* **Înfrângere:** Studentul este învins (`Voința` epuizată) și primește **Restanță**.
 
