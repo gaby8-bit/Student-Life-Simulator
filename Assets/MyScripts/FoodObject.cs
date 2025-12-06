@@ -15,7 +15,7 @@ public class FoodObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        Debug.Log("Trigger atins de: " + other.gameObject.name);
         if (other.CompareTag("Player"))
         {
      

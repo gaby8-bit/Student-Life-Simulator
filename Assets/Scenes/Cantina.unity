@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 25672128}
   - component: {fileID: 25672127}
   m_Layer: 5
-  m_Name: SliderFoame
+  m_Name: foameSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,7 +175,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 582618403}
   m_FillRect: {fileID: 821680874}
   m_HandleRect: {fileID: 582618401}
@@ -196,7 +196,7 @@ RectTransform:
   m_GameObject: {fileID: 25672126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 4.805361, y: 5.7764, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1411164787}
@@ -206,7 +206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -107.6, y: 67.766}
+  m_AnchoredPosition: {x: -563, y: 493}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &58180064
@@ -387,6 +387,7 @@ GameObject:
   - component: {fileID: 86202732}
   - component: {fileID: 86202735}
   - component: {fileID: 86202736}
+  - component: {fileID: 86202737}
   m_Layer: 0
   m_Name: Cafeteria First Spritesheet 1_1
   m_TagString: Untagged
@@ -514,7 +515,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.14308119, y: -0.19406891}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -524,8 +525,68 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 14.90625, y: 7.5625}
+  m_Size: {x: 8.163533, y: 3.0514846}
   m_EdgeRadius: 0
+--- !u!114 &86202737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86202731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ee65dc4cb8f13428f97c093b9d377c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodObject
+  hungerRestoreAmount: 30
+--- !u!1 &170577656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 170577657}
+  - component: {fileID: 170577660}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &170577657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170577656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.99944, y: 0, z: 124.32239}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &170577660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170577656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b190636ccdb3a0142b12c7ac779630f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  foame: 100
+  foameDecayAmount: 5
+  foameDecayInterval: 5
 --- !u!1 &191169154
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,9 +872,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8738902458370966635, guid: 672092d6fae854c9da73ae8124fb85bc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 896075714}
-    - targetCorrespondingSourceObject: {fileID: 8738902458370966635, guid: 672092d6fae854c9da73ae8124fb85bc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 896075713}
     - targetCorrespondingSourceObject: {fileID: 8738902458370966635, guid: 672092d6fae854c9da73ae8124fb85bc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 896075712}
@@ -1737,24 +1795,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f237899ca9cdec34f8904998d0a85de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::YSortScript
---- !u!114 &896075713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896075711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 400aeeefac8a0e848b7db778c1110e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
-  jumpForce: 8
-  groundCheck: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  checkRadius: 0.2
 --- !u!114 &896075714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1829,8 +1869,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.05929044, y: 0.26052266}
-  m_Size: {x: 0.7785582, y: 1.0525497}
+  m_Offset: {x: 0.05929069, y: 0.2507763}
+  m_Size: {x: 0.62238854, y: 0.91528225}
   m_Direction: 0
 --- !u!1 &916406012
 GameObject:
@@ -2549,7 +2589,7 @@ GameObject:
   - component: {fileID: 1529853431}
   - component: {fileID: 1529853430}
   m_Layer: 5
-  m_Name: TextFoame
+  m_Name: foameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2670,7 +2710,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.8, y: -25.7}
+  m_AnchoredPosition: {x: -74, y: 481}
   m_SizeDelta: {x: 185.707, y: 43.6677}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1654968587
@@ -3030,7 +3070,7 @@ Canvas:
   m_GameObject: {fileID: 1700176090}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -3220,3 +3260,4 @@ SceneRoots:
   - {fileID: 58180069}
   - {fileID: 405165821}
   - {fileID: 1700176095}
+  - {fileID: 170577657}
