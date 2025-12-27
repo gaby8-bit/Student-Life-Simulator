@@ -206,7 +206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 286, y: 365}
+  m_AnchoredPosition: {x: 286, y: 339}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &58180064
@@ -795,15 +795,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5176087160205750793, guid: 672092d6fae854c9da73ae8124fb85bc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5176087160205750793, guid: 672092d6fae854c9da73ae8124fb85bc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5176087160205750793, guid: 672092d6fae854c9da73ae8124fb85bc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5176087160205750793, guid: 672092d6fae854c9da73ae8124fb85bc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1858,7 +1858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c67dd45f3b575499526e8ab391b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UndertaleMovement
-  moveSpeed: 45
+  moveSpeed: 55
 --- !u!1 &916406012
 GameObject:
   m_ObjectHideFlags: 0
@@ -2697,7 +2697,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 378, y: 409}
+  m_AnchoredPosition: {x: 378, y: 385.3}
   m_SizeDelta: {x: 185.707, y: 43.6677}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1654968587
