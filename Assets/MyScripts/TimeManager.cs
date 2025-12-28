@@ -1,14 +1,14 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    [Header("Set�ri Timp")]
-    public float timeMultiplier = 60f; // 1 secund� real� = 1 minut �n joc
+    [Header("Setări Timp")]
+    public float timeMultiplier = 60f; // 1 secundă reală = 1 minut în joc
     public int startHour = 8;
 
     private float elapsedSeconds;
-    private int currentMinutes;
-    private int currentHours;
+    public int currentMinutes;
+    public int currentHours;
 
     private UIManager uiManager;
 
@@ -17,10 +17,28 @@ public class TimeManager : MonoBehaviour
         uiManager = FindAnyObjectByType<UIManager>();
         currentHours = startHour;
     }
+    public void AddHours(int hoursToAdd)
+    {
+        currentHours += hoursToAdd;
+
+        // Dacă trece de miezul nopții (24), o luăm de la 0
+        if (currentHours >= 24)
+        {
+            currentHours -= 24;
+        }
+
+        // Forțăm actualizarea textului pe ecran imediat
+        if (uiManager != null)
+        {
+            uiManager.UpdateTimeUI(currentHours, currentMinutes);
+        }
+
+        Debug.Log("Timpul a sărit cu 8 ore. Ora actuală: " + currentHours);
+    }
 
     void Update()
     {
-        // Calcul�m trecerea timpului
+        // Calculăm trecerea timpului
         elapsedSeconds += Time.deltaTime * timeMultiplier;
 
         if (elapsedSeconds >= 60f)
@@ -39,7 +57,7 @@ public class TimeManager : MonoBehaviour
                 }
             }
 
-            // Actualiz�m UI-ul doar c�nd se schimb� minutul
+            // Actualizăm UI-ul doar când se schimbă minutul
             if (uiManager != null)
             {
                 uiManager.UpdateTimeUI(currentHours, currentMinutes);

@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Text Informații")]
     public TextMeshProUGUI foameText;
+    public TextMeshProUGUI energieText; 
 
     [Header("Ceas")]
     public TextMeshProUGUI timeText;
@@ -48,6 +49,10 @@ public class UIManager : MonoBehaviour
         if (foameText != null)
         {
             foameText.text = "Foame: " + Mathf.Floor(gameManager.foame);
+        }
+        if (energieText != null)
+        {
+            energieText.text = "Energie: " + Mathf.Floor(gameManager.energie) + "%";
         }
     }
 
