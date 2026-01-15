@@ -2,23 +2,43 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
-    public float speed = 100f; //
-    public int damage = 10;
+    // Valorile sunt 'private const' pentru a nu putea fi modificate din Inspector
+    private const float BAZA_DAMAGE_INFIM = 0.01f; 
+    private const float MULTIPLICATOR_STUDIU = 0.5f; 
+    
+    public float speed = 45f;
 
     void Start()
     {
-        GetComponent<Rigidbody2D>().linearVelocity = transform.right * speed;
+        if (GetComponent<Rigidbody2D>() != null)
+        {
+            GetComponent<Rigidbody2D>().linearVelocity = transform.right * speed;
+        }
         Destroy(gameObject, 2f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Căutăm scriptul numit HealthBar pe obiectul lovit
-        HealthBar health = other.GetComponent<HealthBar>();
+        // ATENȚIE: Căutăm 'BossHealth', nu 'HealthBar', pentru a se potrivi cu scriptul boss-ului
+        BossHealth boss = other.GetComponent<BossHealth>(); 
 
-        if (health != null)
+        if (boss != null)
         {
-            health.TakeDamage(damage); // Acum va funcționa fără eroare!
+            float nivel = 0;
+            if (GameManager.instance != null)
+            {
+                nivel = GameManager.instance.nivelInvatare;
+            }
+
+            // Nivel 0 => 0.01 damage -> Rotunjit la 0. Boss-ul nu pățește nimic.
+            // Nivel 1 => 0.51 damage -> Rotunjit la 1. Boss-ul pierde 0.02% viață.
+            // Nivel 10 => 5.01 damage -> Rotunjit la 5.
+            float damageCalculat = BAZA_DAMAGE_INFIM + (nivel * MULTIPLICATOR_STUDIU);
+
+            // Mathf.RoundToInt rotunjește 0.5 la cel mai apropiat număr par (0)
+            boss.TakeDamage(Mathf.RoundToInt(damageCalculat)); 
+            
+            Debug.Log("Impact! Nivel Studiu: " + nivel + " | Damage aplicat: " + Mathf.RoundToInt(damageCalculat));
             Destroy(gameObject);
         }
     }
