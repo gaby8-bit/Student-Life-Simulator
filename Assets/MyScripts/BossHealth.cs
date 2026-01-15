@@ -3,9 +3,10 @@ using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    // Mărim viața la 5000 pentru ca 1 damage să fie insignifiant (0.02%)
+    public int maxHealth = 5000; 
     private int currentHealth;
-    public Slider hpSlider; // Trage aici hpBoss din Canvas
+    public Slider hpSlider;
 
     void Start()
     {
@@ -17,25 +18,17 @@ public class BossHealth : MonoBehaviour
         }
     }
 
-    // Funcția care scade viața
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        
-        if (hpSlider != null)
-        {
-            hpSlider.value = currentHealth;
-        }
+        if (hpSlider != null) hpSlider.value = currentHealth;
 
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        if (currentHealth <= 0) Die();
     }
 
     void Die()
     {
-        Debug.Log("Boss-ul a murit!");
-        Destroy(gameObject); // Această linie șterge boss-ul din joc
+        Debug.Log("Boss-ul a fost învins!");
+        Destroy(gameObject);
     }
 }
