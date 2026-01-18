@@ -5,10 +5,9 @@ public class DoorTransition : MonoBehaviour
 {
     public GameObject transitionMenuPanel;
     
-    // SCHIMBAT: Variabila se așteaptă acum la tipul UndertaleMovement
+    
     public UndertaleMovement playerMovementScript; 
-    // Notă: Va trebui să atribui manual scriptul UndertaleMovement de pe jucător în acest slot,
-    // în Inspectorul Unity, pe obiectul Ușă.
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {

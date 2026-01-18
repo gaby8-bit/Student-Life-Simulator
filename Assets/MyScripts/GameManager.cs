@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         InitializeStats();
     }
 
-    // NOU: Gestionează morțile diferit pentru fiecare boss
+    //Gestionează morțile diferit pentru fiecare boss
     public void HandleDeath()
     {
         string currentScene = SceneManager.GetActiveScene().name;

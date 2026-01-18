@@ -21,13 +21,12 @@ public class TimeManager : MonoBehaviour
     {
         currentHours += hoursToAdd;
 
-        // Dacă trece de miezul nopții (24), o luăm de la 0
+        
         if (currentHours >= 24)
         {
             currentHours -= 24;
         }
 
-        // Forțăm actualizarea textului pe ecran imediat
         if (uiManager != null)
         {
             uiManager.UpdateTimeUI(currentHours, currentMinutes);
@@ -38,7 +37,7 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-        // Calculăm trecerea timpului
+        
         elapsedSeconds += Time.deltaTime * timeMultiplier;
 
         if (elapsedSeconds >= 60f)
@@ -57,7 +56,6 @@ public class TimeManager : MonoBehaviour
                 }
             }
 
-            // Actualizăm UI-ul doar când se schimbă minutul
             if (uiManager != null)
             {
                 uiManager.UpdateTimeUI(currentHours, currentMinutes);
